@@ -14,6 +14,12 @@ body, html{
 		width: 960px;
 	}
 }
+
+@font-face {
+    font-family: "Vevey";
+    src: url("../fonts/vevey.ttf") format("truetype");
+}
+
 h1{
 	font-weight: 700;
 	font-size: 46px;
@@ -102,6 +108,11 @@ a:focus{
 	outline: thin dotted transparent;
 	outline: none;
 	outline-offset: -2px;
+}
+.name-font{
+    font-family: Vevey;
+    font-size: 60px;
+    letter-spacing: 1px;
 }
 .typed-cursor {
 	opacity: 1;
