@@ -123,6 +123,16 @@ a:focus{
     -moz-animation: blink 0.5s linear infinite;
     animation: blink 0.5s linear infinite;
 }
+
+#socials{
+    position: fixed;
+    right: 0;
+    padding-top:75px;
+    padding-right:85px;
+    font-size: 30px;
+    color:inherit;
+}
+
 @keyframes blink{
     0% { opacity:1; }
     50% { opacity:0; }
@@ -158,11 +168,15 @@ nav#menu span.fa.fa-bars{
 	font-size: 30px;
 	position: fixed;
 	left: 120px;
-	color: #c0c0c0;
 	cursor: pointer;
 	z-index: 1;
 }
-
+.nav-light {
+    color: #FFFFFF;
+}
+.nav-dark {
+    color: #222222;
+}
 .navmenu, .navbar-offcanvas {
 width: 270px;
 z-index: 10;
@@ -192,9 +206,11 @@ text-transform: uppercase;
 font-size: 12px;
 line-height: 30px;
 }
-nav#menu span.fa.fa-bars:hover {
-color: #C59A6D;
+
+nav#menu span.fa.fa-bars:hover::before{
+    color: #C59A6D;
 }
+
 .navmenu-default .navmenu-nav>.active>a,
 .navbar-default .navbar-offcanvas .navmenu-nav>.active>a,
 .navmenu-default .navmenu-nav>.active>a:hover,
