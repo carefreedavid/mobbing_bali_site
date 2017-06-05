@@ -243,6 +243,10 @@ background-color: transparent;
 	padding: 60px 0;
 }
 
+#test_link{
+  color: white;
+}
+
 a.down-btn span.fa.fa-angle-down {
 	font-size: 26px;
 	border: 1px solid #c59a6d;
@@ -419,7 +423,7 @@ a.btn.send-btn:hover{
 }
 
 #clients {
-	background: url(../img/bg3.jpg);
+	background: url(https://s3.postimg.org/hbxvt85ub/back.jpg);
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
