@@ -332,20 +332,25 @@
                 </div>
 
                 <div class="col-md-9">
-                    <form autocomplete="off">
+                    <form autocomplete="off" role="form" method="post" action="index.php">
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Your Name">
-                                <input type="text" class="form-control" placeholder="Phone No.">
+                                <input id="form_name" name="form_name" type="text" class="form-control" placeholder="Your Name">
+                                <!--<?php echo "<p class='text-danger'>$errName</p>";?>-->
+                                <input id="form_number" name="form_number" type="tel" class="form-control" placeholder="Phone No.">
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Email">
-                                <input type="text" class="form-control" placeholder="Subject">
+                                <input id="form_email" name="form_email" type="email" class="form-control" placeholder="Email">
+                                <!--<?php echo "<p class='text-danger'>$errEmail</p>";?>-->
+                                <input id="form_subject" name="form_subject" type="text" class="form-control" placeholder="Subject">
+                                <!--<?php echo "<p class='text-danger'>$errSubject</p>";?>-->
                             </div>
                         </div>
-                        <textarea class="form-control" rows="4" placeholder="Message"></textarea>
+                        <textarea name="form_message" class="form-control" rows="4" placeholder="Message"></textarea>
+                        <!--<?php echo "<p class='text-danger'>$errMessage</p>";?>-->
                         <div class="text-right">
-                            <a href="#" class="btn send-btn">Send</a>
+                            <!--<a href="#" class="btn send-btn">Send</a>-->
+                            <input id="form_submit" name="form_submit" type="submit" value="Send" class="btn send-btn">
                         </div>
                     </form>
                 </div>

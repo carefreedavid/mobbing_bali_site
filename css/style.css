@@ -408,7 +408,7 @@ a.btn.go-to-btn:hover{
 }
 
 
-a.btn.read-more-btn{
+.btn.read-more-btn{
 	text-transform: uppercase;
 	background: #c59a6d;
 	color: #282f35;
@@ -419,12 +419,12 @@ a.btn.read-more-btn{
 	color: #ffffff;
 	transition: all 0.5s;
 }
-a.btn.read-more-btn:hover{
+.btn.read-more-btn:hover{
 	background: #222222;
 	color: #ffffff;
 }
 
-a.btn.send-btn{
+.btn.send-btn{
 	text-transform: uppercase;
 	background: #c59a6d;
 	color: #282f35;
@@ -434,7 +434,7 @@ a.btn.send-btn{
 	color: #ffffff;
 	transition: all 0.5s;
 }
-a.btn.send-btn:hover{
+.btn.send-btn:hover{
 	background: transparent;
 	border: 1px solid #c59a6d;
 	color: #ffffff;
