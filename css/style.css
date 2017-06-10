@@ -191,20 +191,20 @@ z-index: 10;
 .navbar-default .navbar-offcanvas .navmenu-nav>li>a:hover,
 .navmenu-default .navmenu-nav>li>a:focus,
 .navbar-default .navbar-offcanvas .navmenu-nav>li>a:focus {
-color: #C59A6D;
-background-color: transparent;
+    color: #C59A6D;
+    background-color: transparent;
 }
 .nav > li {
-position: relative;
-display: block;
-text-align: center;
+    position: relative;
+    display: block;
+    text-align: center;
 }
 .navmenu-default .navmenu-nav>li>a,
 .navbar-default .navbar-offcanvas .navmenu-nav>li>a {
-color: #ffffff;
-text-transform: uppercase;
-font-size: 12px;
-line-height: 30px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 30px;
 }
 
 nav#menu span.fa.fa-bars:hover::before{
@@ -217,8 +217,8 @@ nav#menu span.fa.fa-bars:hover::before{
 .navbar-default .navbar-offcanvas .navmenu-nav>.active>a:hover,
 .navmenu-default .navmenu-nav>.active>a:focus,
 .navbar-default .navbar-offcanvas .navmenu-nav>.active>a:focus {
-color: #C59A6D;
-background-color: transparent;
+    color: #C59A6D;
+    background-color: transparent;
 }
 
 .close:hover{
@@ -334,7 +334,7 @@ a.btn.go-to-btn{
 	text-transform: uppercase;
 	border: 1px solid #c59a6d;
 	word-spacing: 2px;
-  padding-top: 20%;
+    padding-top: 20%;
 	padding: 7px 30px;
 	border-radius: 2px;
 	font-size: 12px;
@@ -390,7 +390,7 @@ a.btn.go-to-btn:hover{
 .hover-bg:hover .hover-text>.hline{
 	opacity: 1;
     -webkit-backface-visibility:hidden;
-   -webkit-transform: translateY(100%);
+    -webkit-transform: translateY(100%);
             transform: translateY(100%);
 }
 .hover-bg:hover .hover-text{
@@ -440,7 +440,7 @@ a.btn.go-to-btn:hover{
 	color: #ffffff;
 }
 
-#clients {
+#gigs {
 	background: url(https://s3.postimg.org/hbxvt85ub/back.jpg);
 	background-size: cover;
 	background-position: center;
@@ -449,7 +449,7 @@ a.btn.go-to-btn:hover{
 	text-align: center;
 }
 
-#clients .overlay{
+#gigs .overlay{
 	background: rgba(34, 34, 34, 0.85);
 	height: auto;
 	min-height: 200px;
@@ -463,7 +463,7 @@ ul, ol{
 	webkit-padding: 0;
 }
 
-ul.clients li{
+ul.gigs li{
 	display: inline-block;
 	padding: 20px 40px;
 	vertical-align: middle;
@@ -576,7 +576,7 @@ address{
 
 #contact input.form-control,
 #contact textarea.form-control {
-margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 #contact .form-control {
@@ -650,4 +650,5 @@ nav#footer{
 	color: #ffffff;
 }
 #footer a:hover{
-	color: #c59a6d;}
+	color: #c59a6d;
+}
