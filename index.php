@@ -150,28 +150,32 @@
                     <a href="#music" class="page-scroll undecorated-link" style="hover: none; text-decoration: none">
                         <div class="service">
 
-                            <span class="fa fa-book fa-3x"></span>
+                            <span class="fa icon-music fa-3x"></span>
                             <h4>Music</h4>
-                            <p>We've released two EPs, incorporating a unique blend of indie, rock, fusion and pop. The lyrics mean what they say, and the instruments say what they want.
-                                2017 promises to be an action-packed year, with music being written constantly and recording happening whenever possible.</p>
+                            <p>The band has released two EPs, showcasing a unique blend of indie, rock, fusion and pop. The lyrics mean what they say, and the instruments say what they want.
+                                We've got busy times ahead, with music being written constantly and recording happening whenever possible.</p>
                         </div>
                     </a>
                 </div>
 
                 <div class="col-md-4 col-sm-4">
-                    <div class="service">
-                        <span class="fa fa-bicycle fa-3x"></span>
-                        <h4>Gigs</h4>
-                        <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Accusamus et. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis </p>
-                    </div>
+                    <a href="#gigs" class="page-scroll undecorated-link" style="hover: none; text-decoration: none">
+                        <div class="service">
+                            <span class="fa icon-live fa-3x"></span>
+                            <h4>Gigs</h4>
+                            <p>Mobbing Bali regularly plays popular venues in Cape Town and Stellenbosch, and have been featured on South African TV shows "Expresso" and "Hectic Nine-9". The band hopes to tour soon and are booked for festivals late in the year.<br><br/></p>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="col-md-4 col-sm-4">
-                    <div class="service">
-                        <span class="fa fa-plug fa-3x"></span>
-                        <h4>Merch</h4>
-                        <p>Nulla vitae elit libero, a pharetra augue. At vero eos et accusamus et iusto odio dignissimos ducimus. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. </p>
-                    </div>
+                    <a href="#store" class="page-scroll undecorated-link" style="hover: none; text-decoration: none">
+                        <div class="service">
+                            <span class="fa icon-merch fa-3x"></span>
+                            <h4>Merch</h4>
+                            <p>We plan to put our mark on some beanies, coffee cups, hats and all thing wearable. <br><br/> T-Shirts have arrived ... Contact us if you would like one, or pick one up at the next gig!<br><br/></p>
+                        </div>
+                    </a>
                 </div>
             </div>
             <a href="#music" class="down-btn page-scroll">
