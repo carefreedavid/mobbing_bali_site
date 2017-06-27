@@ -264,7 +264,7 @@
                     <h2>Gigs</h2>
                     <hr>
                 </div>
-                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Ai1qKtHKtswDs15UIBm2Xos4W8U" width="850" height="480"></iframe>
+                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Ai1qKtHKtswDs15UIBm2Xos4W8U" width="640" height="480"></iframe>
             </div>
         </div>
     </div>
