@@ -458,7 +458,7 @@ if(isset($_POST['form_submit'])) {
       $(function(){
           $("#head-title").typed({
             strings: ["There are four of us.^1000", "One sings and complains^1000" ,"One shreds harder than a cheese grater^1000","Another one just bangs things^1000","There's one more^1000", "but he has two less strings than the other guys^1000", "Except for the guy who bangs things", "He doesn't use any strings^1000","None.^1000"],
-            typeSpeed: 50,
+            typeSpeed: 60,
             loop: true,
             startDelay: 100
           });

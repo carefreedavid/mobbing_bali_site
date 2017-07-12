@@ -1,8 +1,3 @@
-// Hello.
-//
-// This is The Scripts used for ___________ Theme
-//
-//
 
 /* Change the color of the menu icon for light/dark backgrounds */
 var menuIcon = document.getElementById('menu-icon');
@@ -37,23 +32,36 @@ window.onscroll = function () {
         twIcon.classList.remove("nav-dark");
     }
     "use strict";
-    if (document.body.scrollTop >= 3476){
-        setLight();
-    }
-    else if (document.body.scrollTop >= 2465){
+
+    var scrollCount = 1000;
+    if(document.body.scrollTop < scrollCount){
         setDark();
+        return;
     }
-    else if (document.body.scrollTop >= 2220){
+    scrollCount += 470;
+    if(document.body.scrollTop < scrollCount){
         setLight();
+        return;
     }
-    else if (document.body.scrollTop >= 1470){
+    scrollCount += 750;
+    if(document.body.scrollTop < scrollCount){
         setDark();
+        return;
     }
-    else if (document.body.scrollTop >= 1000 ) {
+    scrollCount += 647;
+    if(document.body.scrollTop < scrollCount){
         setLight();
+        return;
     }
-    else {
+    scrollCount += 260;
+    if(document.body.scrollTop < scrollCount){
         setDark();
+        return;
+    }
+    scrollCount += 879;
+    if(document.body.scrollTop < scrollCount){
+        setLight();
+        return;
     }
 };
 
@@ -113,9 +121,6 @@ function main() {
 	  });
 
 	});
-
-
-
 
 
 }());
