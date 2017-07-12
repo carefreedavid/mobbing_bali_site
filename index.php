@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 $successContact = "";
 $errContact = "";
 if(isset($_POST['form_submit'])) {
@@ -37,20 +40,18 @@ if(isset($_POST['form_submit'])) {
       return str_replace($bad,"",$string);
     }
 
-    $email_message = "";
-    $email_message .= "Name: ".clean_string($form_name)."\n";
-    $email_message .= "Email: ".clean_string($form_email)."\n";
-    if(isset($_POST['form_number'])){
-        $email_message .= "Phone: ".clean_string($form_number)."\n";
-    }
-    $email_message .= "Subject: ".clean_string($form_subject)."\n\n";
-    $email_message .= clean_string($form_message)."\n";
 
     if(empty($errContact)){
         // Format email
-        $headers = 'From: '.$form_email."\r\n".
-        'Reply-To: '.$form_email."\r\n" .
-        'X-Mailer: PHP/' . phpversion();
+        $email_message = "";
+        $email_message .= "Name: ".clean_string($form_name)."\n";
+        $email_message .= "Email: ".clean_string($form_email)."\n";
+        if(isset($_POST['form_number'])){
+            $email_message .= "Phone: ".clean_string($form_number)."\n";
+        }
+        $email_message .= "Subject: ".clean_string($form_subject)."\n\n";
+        $email_message .= clean_string($form_message)."\n";
+
         $email_subject = "Contact Form Submission: ".$form_subject;
 
         $mail = new PHPMailer;
@@ -66,7 +67,7 @@ if(isset($_POST['form_submit'])) {
         $mail->addAddress($email_to, 'Mobbing Bali');     // Recipient's email address and optionally a name to identify him
         $mail->isHTML(false);   // Set email to be sent as HTML, if you are planning on sending plain text email just set it to false
 
-        $mail->Subject = 'Email sent with Mailgun';
+        $mail->Subject = $email_subject;
         $mail->Body    = $email_message;
         $mail->AltBody = 'Mailgun rocks, shame you can\'t see the html sent with phpmailer so you\'re seeing this instead';
 
@@ -77,6 +78,9 @@ if(isset($_POST['form_submit'])) {
             echo "Message has been sent :) \n";
         }
 
+        $headers = 'From: '.$form_email."\r\n".
+        'Reply-To: '.$form_email."\r\n" .
+        'X-Mailer: PHP/' . phpversion();
         // Send and notify of success
         if(mail($email_to, $email_subject, $email_message, $headers)){
             $successContact = "Thank you for contacting us. We will respond shortly.";
