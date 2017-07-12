@@ -323,7 +323,7 @@ if(isset($_POST['form_submit'])) {
                 </div>
                 <div data-tockify-component="calendar" data-tockify-calendar="mobbinggigs"></div>
                 <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
-                <!-- <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Ai1qKtHKtswDs15UIBm2Xos4W8U" width="850" height="480"></iframe> -->
+                <!--<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Ai1qKtHKtswDs15UIBm2Xos4W8U" width="640" height="480"></iframe>-->
             </div>
         </div>
     </div>
