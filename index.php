@@ -1,4 +1,61 @@
 <!DOCTYPE html>
+
+<?php
+$successContact = "";
+$errContact = "";
+if(isset($_POST['form_submit'])) {
+
+    $email_to = "support@mobbingbali.com";
+
+    // Validate fields
+    if(!isset($_POST['form_name']) ||
+        !isset($_POST['form_email']) ||
+        !isset($_POST['form_subject']) ||
+        !isset($_POST['form_message'])) {
+        $errContact .= 'Please include a name, email, subject and message. <br />';
+    }
+
+    $form_name = $_POST['form_name'];
+    $form_email = $_POST['form_email'];
+    $form_subject = $_POST['form_subject'];
+    $form_number = $_POST['form_number'];
+    $form_message = $_POST['form_message'];
+
+    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
+    if(!preg_match($email_exp, $form_email)) {
+        $errContact .= 'The Email Address you entered does not appear to be valid.<br />';
+    }
+    if(strlen($form_message) < 2) {
+        $errContact .= 'The message you entered does not appear to be valid.<br />';
+    }
+
+    function clean_string($string) {
+      $bad = array("content-type","bcc:","to:","cc:","href");
+      return str_replace($bad,"",$string);
+    }
+
+    $email_message = "";
+    $email_message .= "Name: ".clean_string($form_name)."\n";
+    $email_message .= "Email: ".clean_string($form_email)."\n";
+    if(isset($_POST['form_number'])){
+        $email_message .= "Phone: ".clean_string($form_number)."\n";
+    }
+    $email_message .= "Subject: ".clean_string($form_subject)."\n\n";
+    $email_message .= clean_string($form_message)."\n";
+
+    if(empty($errContact)){
+        // Format email
+        $headers = 'From: '.$form_email."\r\n".
+        'Reply-To: '.$form_email."\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+        $email_subject = "Contact Form Submission: ".$form_subject;
+        // Send and notify of success
+        @mail($email_to, $email_subject, $email_message, $headers);
+        $successContact = "Thank you for contacting us. We will respond shortly.";
+    }
+}
+?>
+
 <html lang="en">
   <head>
     <!-- Basic Page Needs
@@ -9,12 +66,12 @@
     <title>Mobbing Bali</title>
     <meta name="description" content="Indie-rock band based in Cape Town, South Africa.">
     <meta name="keywords" content="mobbing bali, cape town indie, indie rock, band">
-    <meta name="author" content="Jenn, ThemeForces.com">
+    <meta name="author" content="Jenn, ThemeForces.com. Dave Gilmour, Jared Murphy">
 
     <!-- Favicons
     ================================================== -->
     <link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon"/>
-    <link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
@@ -264,7 +321,9 @@
                     <h2>Gigs</h2>
                     <hr>
                 </div>
-                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Ai1qKtHKtswDs15UIBm2Xos4W8U" width="850" height="480"></iframe>
+                <div data-tockify-component="calendar" data-tockify-calendar="mobbinggigs"></div>
+                <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
+                <!-- <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Ai1qKtHKtswDs15UIBm2Xos4W8U" width="850" height="480"></iframe> -->
             </div>
         </div>
     </div>
@@ -321,37 +380,34 @@
                     <address>
                         <strong>Bookings</strong><br>
                         <br>
-                        Email: <br>mobbingbali@gmail.com<br>
+                        Email: <br><a class="undecorated-link" href="mailto:bookings@mobbingbali.com">bookings@mobbingbali.com</a><br>
                         Phone: <br>Becky - 082 070 7061
                         <ul class="social">
                             <li><a href="https://www.facebook.com/MobbingBali/"><span class="fa fa-facebook"></span></a></li>
                             <li><a href="https://twitter.com/mobbingbali"><span class="fa fa-twitter"></span></a></li>
-
                           </ul>
                     </address>
                 </div>
 
                 <div class="col-md-9">
-                    <form autocomplete="off" role="form" method="post" action="index.php">
+                    <form autocomplete="off" role="form" method="post" action="index.php?#contact">
                         <div class="row">
                             <div class="col-md-6">
                                 <input id="form_name" name="form_name" type="text" class="form-control" placeholder="Your Name" required>
-                                <!--<?php echo "<p class='text-danger'>$errName</p>";?>-->
                                 <input id="form_number" name="form_number" type="tel" class="form-control" placeholder="Phone No.">
                             </div>
                             <div class="col-md-6">
                                 <input id="form_email" name="form_email" type="email" class="form-control" placeholder="Email" required>
-                                <!--<?php echo "<p class='text-danger'>$errEmail</p>";?>-->
                                 <input id="form_subject" name="form_subject" type="text" class="form-control" placeholder="Subject" required>
-                                <!--<?php echo "<p class='text-danger'>$errSubject</p>";?>-->
                             </div>
                         </div>
                         <textarea name="form_message" class="form-control" rows="4" placeholder="Message" required></textarea>
-                        <!--<?php echo "<p class='text-danger'>$errMessage</p>";?>-->
                         <div class="text-right">
                             <!--<a href="#" class="btn send-btn">Send</a>-->
                             <input id="form_submit" name="form_submit" type="submit" value="Send" class="btn send-btn">
                         </div>
+                        <?php if(!empty($errContact)) echo "<p class='text-danger'>$errContact</p>";?>
+                        <?php if(!empty($successContact)) echo "<p class='text-success'>$successContact</p>";?>
                     </form>
                 </div>
             </div>
