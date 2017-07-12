@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 
 <?php
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
 
 $successContact = "";
 $errContact = "";
@@ -460,7 +458,7 @@ if(isset($_POST['form_submit'])) {
       $(function(){
           $("#head-title").typed({
             strings: ["There are four of us.^1000", "One sings and complains^1000" ,"One shreds harder than a cheese grater^1000","Another one just bangs things^1000","There's one more^1000", "but he has two less strings than the other guys^1000", "Except for the guy who bangs things", "He doesn't use any strings^1000","None.^1000"],
-            typeSpeed: 35,
+            typeSpeed: 50,
             loop: true,
             startDelay: 100
           });
