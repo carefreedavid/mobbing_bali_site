@@ -8,7 +8,7 @@ $successContact = "";
 $errContact = "";
 if(isset($_POST['form_submit'])) {
 
-    require '../vendor/autoload.php';
+    require './vendor/autoload.php';
     session_start();
 
     $email_to = "support@mobbingbali.com";
@@ -40,17 +40,16 @@ if(isset($_POST['form_submit'])) {
       return str_replace($bad,"",$string);
     }
 
-
     if(empty($errContact)){
         // Format email
         $email_message = "";
-        $email_message .= "Name: ".clean_string($form_name)."\n";
-        $email_message .= "Email: ".clean_string($form_email)."\n";
-        if(isset($_POST['form_number'])){
-            $email_message .= "Phone: ".clean_string($form_number)."\n";
+        $email_message .= "Name: ".clean_string($form_name)."\r\n";
+        $email_message .= "Email: ".clean_string($form_email)."\r\n";
+        if(isset($_POST['form_number']) && !empty($form_number)){
+            $email_message .= "Phone: ".clean_string($form_number)."\r\n";
         }
-        $email_message .= "Subject: ".clean_string($form_subject)."\n\n";
-        $email_message .= clean_string($form_message)."\n";
+        $email_message .= "Subject: ".clean_string($form_subject)."\r\n\r\n";
+        $email_message .= clean_string($form_message)."\r\n";
 
         $email_subject = "Contact Form Submission: ".$form_subject;
 
@@ -69,24 +68,11 @@ if(isset($_POST['form_submit'])) {
 
         $mail->Subject = $email_subject;
         $mail->Body    = $email_message;
-        $mail->AltBody = 'Mailgun rocks, shame you can\'t see the html sent with phpmailer so you\'re seeing this instead';
 
         if(!$mail->send()) {
-            echo "Message hasn't been sent.";
-            echo 'Mailer Error: ' . $mail->ErrorInfo . "\n";
+            $errContact = "Unknown error. Try contacting us via email instead.";
         } else {
-            echo "Message has been sent :) \n";
-        }
-
-        $headers = 'From: '.$form_email."\r\n".
-        'Reply-To: '.$form_email."\r\n" .
-        'X-Mailer: PHP/' . phpversion();
-        // Send and notify of success
-        if(mail($email_to, $email_subject, $email_message, $headers)){
             $successContact = "Thank you for contacting us. We will respond shortly.";
-        }
-        else{
-            $errContact = "Error sending mail";
         }
     }
 }
