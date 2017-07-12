@@ -6,10 +6,8 @@ $errContact = "";
 if(isset($_POST['form_submit'])) {
 
     require '../vendor/autoload.php';
-    use Mailgun\Mailgun;
     session_start();
-    $mgClient = new Mailgun(MAILGUN_API_KEY);
-    $domain = "herokumail.mobbingbali.com";
+
     $email_to = "support@mobbingbali.com";
 
     // Validate fields
@@ -54,18 +52,35 @@ if(isset($_POST['form_submit'])) {
         'Reply-To: '.$form_email."\r\n" .
         'X-Mailer: PHP/' . phpversion();
         $email_subject = "Contact Form Submission: ".$form_subject;
+
+        $mail = new PHPMailer;
+        $mail->isSMTP();
+        $mail->Host = 'smtp.mailgun.org';
+        $mail->SMTPAuth = true; // Enable SMTP authentication
+        $mail->Username = 'postmaster@herokumail.mobbingbali.com'; // SMTP username from https://mailgun.com/cp/domains
+        $mail->Password = '244e26083ff19fa29003ceec4f013bd1'; // SMTP password from https://mailgun.com/cp/domains
+        $mail->SMTPSecure = 'tls';   // Enable encryption, 'ssl'
+
+        $mail->From = $form_email; // The FROM field, the address sending the email
+        $mail->FromName = $form_name; // The NAME field which will be displayed on arrival by the email client
+        $mail->addAddress($email_to, 'Mobbing Bali');     // Recipient's email address and optionally a name to identify him
+        $mail->isHTML(false);   // Set email to be sent as HTML, if you are planning on sending plain text email just set it to false
+
+        $mail->Subject = 'Email sent with Mailgun';
+        $mail->Body    = $email_message;
+        $mail->AltBody = 'Mailgun rocks, shame you can\'t see the html sent with phpmailer so you\'re seeing this instead';
+
+        if(!$mail->send()) {
+            echo "Message hasn't been sent.";
+            echo 'Mailer Error: ' . $mail->ErrorInfo . "\n";
+        } else {
+            echo "Message has been sent :) \n";
+        }
+
         // Send and notify of success
         if(mail($email_to, $email_subject, $email_message, $headers)){
             $successContact = "Thank you for contacting us. We will respond shortly.";
         }
-        # Make the call to the client.
-        $result = $mgClient->sendMessage($domain, array(
-            'from'    => $form_name . ' <' . $form_email . '>',
-            'to'      => $email_to,
-            'subject' => $email_subject,
-            'text'    => $email_message
-        ));
-        echo $result;
         else{
             $errContact = "Error sending mail";
         }
