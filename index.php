@@ -5,6 +5,11 @@ $successContact = "";
 $errContact = "";
 if(isset($_POST['form_submit'])) {
 
+    require '../vendor/autoload.php';
+    use Mailgun\Mailgun;
+    session_start();
+    $mgClient = new Mailgun(MAILGUN_API_KEY);
+    $domain = "herokumail.mobbingbali.com";
     $email_to = "support@mobbingbali.com";
 
     // Validate fields
@@ -50,8 +55,20 @@ if(isset($_POST['form_submit'])) {
         'X-Mailer: PHP/' . phpversion();
         $email_subject = "Contact Form Submission: ".$form_subject;
         // Send and notify of success
-        @mail($email_to, $email_subject, $email_message, $headers);
-        $successContact = "Thank you for contacting us. We will respond shortly.";
+        if(mail($email_to, $email_subject, $email_message, $headers)){
+            $successContact = "Thank you for contacting us. We will respond shortly.";
+        }
+        # Make the call to the client.
+        $result = $mgClient->sendMessage($domain, array(
+            'from'    => $form_name . ' <' . $form_email . '>',
+            'to'      => $email_to,
+            'subject' => $email_subject,
+            'text'    => $email_message
+        ));
+        echo $result;
+        else{
+            $errContact = "Error sending mail";
+        }
     }
 }
 ?>
