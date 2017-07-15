@@ -6,6 +6,7 @@ var fbIcon = socialWrapper.getElementsByTagName('a')[0];
 var instaIcon = socialWrapper.getElementsByTagName('a')[1];
 var ytIcon = socialWrapper.getElementsByTagName('a')[2];
 var twIcon = socialWrapper.getElementsByTagName('a')[3];
+var scrollCount = 0;
 window.onscroll = function () {
     function setDark(){
         menuIcon.classList.add("nav-dark");
@@ -33,7 +34,8 @@ window.onscroll = function () {
     }
     "use strict";
 
-    var scrollCount = 1000;
+    scrollCount = 0;
+    scrollCount += 1000;
     if(document.body.scrollTop < scrollCount){
         setDark();
         return;
@@ -48,7 +50,7 @@ window.onscroll = function () {
         setDark();
         return;
     }
-    scrollCount += 647;
+    scrollCount += 400;
     if(document.body.scrollTop < scrollCount){
         setLight();
         return;

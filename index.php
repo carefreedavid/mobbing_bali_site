@@ -55,8 +55,8 @@ if(isset($_POST['form_submit'])) {
         $mail->isSMTP();
         $mail->Host = 'smtp.mailgun.org';
         $mail->SMTPAuth = true; // Enable SMTP authentication
-        $mail->Username = 'postmaster@herokumail.mobbingbali.com'; // SMTP username from https://mailgun.com/cp/domains
-        $mail->Password = '244e26083ff19fa29003ceec4f013bd1'; // SMTP password from https://mailgun.com/cp/domains
+        $mail->Username = getenv('SMTP_USERNAME'); // SMTP username from https://mailgun.com/cp/domains
+        $mail->Password = getenv('SMTP_PASSWORD'); // SMTP password from https://mailgun.com/cp/domains
         $mail->SMTPSecure = 'tls';   // Enable encryption, 'ssl'
 
         $mail->From = $form_email; // The FROM field, the address sending the email
