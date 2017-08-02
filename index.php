@@ -141,23 +141,22 @@ if(isset($_POST['form_submit'])) {
     <!-- Off Canvas Navigation
     ================================================== -->
     <div class="navmenu navmenu-default navmenu-fixed-left offcanvas"> <!--- Off Canvas Side Menu -->
+
         <div class="close" data-toggle="offcanvas" data-target=".navmenu">
             <span class="fa fa-close"></span>
         </div>
         <div class="add-margin"></div>
         <ul class="nav navmenu-nav"> <!--- Menu -->
-            <li><a href="#home" class="page-scroll">Home</a></li>
-            <li><a href="#meet-us" class="page-scroll">More About Us</a></li>
-            <li><a href="#videos" class="page-scroll">Videos</a></li>
-            <li><a href="#stuff" class="page-scroll">Things we've done</a></li>
+            <li><a href="#meet-us" class="page-scroll">Overview</a></li>
             <li><a href="#music" class="page-scroll">Music</a></li>
+            <li><a href="#videos" class="page-scroll">Videos</a></li>
             <li><a href="#gigs" class="page-scroll">Gigs</a></li>
-            <li><a href="#contact" class="page-scroll">Bookings</a></li>
+            <li><a href="#contact" class="page-scroll">Contact</a></li>
         </ul><!--- End Menu -->
     </div> <!--- End Off Canvas Side Menu -->
 
 
-    <span id="socials" class="nav navbar-nav navbar-right">
+    <span id="socials" class="nav-dark">
         <a href="https://www.facebook.com/MobbingBali/" class="fa fa-facebook"></a>
         <a href="https://www.instagram.com/mobbingbali/" class="fa fa-instagram"></a>
         <a href="https://www.youtube.com/channel/UCnwic-zkdOJlWOIq2zT2DlQ" class="fa fa-youtube"></a>
@@ -188,16 +187,16 @@ if(isset($_POST['form_submit'])) {
     </div>
 
 
-    <!-- Meet Us Section -->
+    <!-- Overview Section -->
     <div id="meet-us">
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="section-title">
-                        <h2>Here's the whole thing</h2>
+                        <h2>Here's the Rundown</h2>
                         <hr>
                     </div>
-                    <p>There are four of us. One sings and complains. One shreds harder than a cheese grater. Another one just bangs things. There's one more but he has two less strings than the other guys. Except for the guy who bangs things. He doesn't use any strings. None.</p>
+                    <p>We are a four-piece Indie Rock band hailing from Cape Town, South Africa. <br> Our music aims to infuse elements of Rock, Classical, Pop and Latin. <br><br> Whatever the setting, we're there to groove.</p>
                     <a href="#stuff" class="down-btn page-scroll">
                         <span class="fa fa-angle-down"></span>
                     </a>
@@ -206,27 +205,12 @@ if(isset($_POST['form_submit'])) {
         </div>
     </div>
 
-    <!-- Overview Video Section -->
-    <div id="videos">
-        <div class="overlay">
-            <div class="container">
-                <div class="section-title">
-                    <h2 style="color:white"> We play Live too! <h2>
-                    <hr>
-                </div>
-                <a href="#">
-                  <iframe width=90% height="350" src="https://www.youtube.com/embed/wUqsBN-c1co" frameborder="0" allowfullscreen></iframe>
-                </a>
-            </div>
-        </div>
-    </div>
-
     <!-- Services Section -->
-    <div id="stuff">
+    <div id="stuff" style="background-color:#424242;">
         <div class="container text-center">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <div class="section-title">
+                    <div class="section-title" style="color:white;">
                         <h2>Some stuff we've done</h2>
                         <hr>
                     </div>
@@ -235,7 +219,7 @@ if(isset($_POST['form_submit'])) {
 
             <div class="space"></div>
 
-            <div class="row">
+            <div class="row" style="color:white;">
                 <div class="col-md-4 col-sm-4">
                     <a href="#music" class="page-scroll undecorated-link" style="hover: none; text-decoration: none">
                         <div class="service">
@@ -271,13 +255,6 @@ if(isset($_POST['form_submit'])) {
             <a href="#music" class="down-btn page-scroll">
                 <span class="fa fa-angle-down"></span>
             </a>
-        </div>
-    </div>
-
-    <!-- Call-to-Action Section -->
-    <div id="cta">
-        <div class="container text-center">
-            <h2 style="color:white;">"Writing whistful lyrics doesn't bring me luck" - Coffee</h2>
         </div>
     </div>
 
@@ -343,6 +320,27 @@ if(isset($_POST['form_submit'])) {
             <a href="#about-us" class="down-btn page-scroll"><span class="fa fa-angle-down"></span></a>
         </div>
         <div class="space"></div>
+    </div>
+
+    <!-- Call-to-Action Section -->
+    <div id="cta">
+        <div class="container text-center">
+            <h2 style="color:white;">"Writing whistful lyrics doesn't bring me luck" - Coffee</h2>
+        </div>
+    </div>
+
+    <!-- Video Section -->
+    <div id="videos" style="background-color:white; margin-bottom:30px;">
+            <div class="container">
+                <div class="section-title">
+                    <h2 style="color:#333333;"> We play Live too! <h2>
+                    <hr>
+                </div>
+                <a href="#">
+                  <iframe width="600" height="400" src="https://www.youtube.com/embed/?listType=playlist&list=PLLSXAF30z8EbQ85LjTLxJiarIyWcErV9P" frameborder="0" allowfullscreen></iframe>
+                  <!--<iframe width=90% height="350" src="https://www.youtube.com/embed/wUqsBN-c1co" frameborder="0" allowfullscreen></iframe>-->
+                </a>
+            </div>
     </div>
 
     <!-- Gigs Section -->

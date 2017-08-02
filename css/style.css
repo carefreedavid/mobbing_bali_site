@@ -117,24 +117,24 @@ a:focus{
 	text-decoration: none;
 }
 #home{
-	background: url(https://s4.postimg.org/tjxlit2e5/2017-05-15-_NV-_Mobbing_Bali-048i.jpg);
-	background-size: cover;
-	background-position: center;
+	background: url(/img/cover.jpg);
+  background-size: auto;
+  background-position: 50% calc(50% - 10px);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	height: auto;
-	min-height: 710px;
-	padding-top: 60px;
+  padding-top: 60px;
+	height: 100vh;
 	color: #ffffff;
 }
 #home a.down-btn span.fa.fa-angle-down {
 	font-size: 26px;
-	border: 1px solid #c59a6d;
+	border: 1px solid #C59A6D;
 	border-radius: 2px;
-	padding: 7px 5px;
-	position: relative;
+	position: absolute;
+  left: calc(50% - 13px);
+  bottom:50px;
 	margin-top: 100px;
-	color: #ffffff;
+	color: #C59A6D;
 	cursor: pointer;
 }
 .content{
@@ -161,8 +161,10 @@ a:focus{
 }
 .name-font{
     font-family: Vevey;
-    font-size: 60px;
-    letter-spacing: 1px;
+    font-size: 90px;
+    letter-spacing: 2px;
+    color:#fff;
+    text-shadow: 2px 2px #333333;
 }
 .typed-cursor {
 	opacity: 1;
@@ -177,10 +179,10 @@ a:focus{
 #socials{
     position: fixed;
     right: 0;
-    padding-top:75px;
+    padding-top:70px;
     padding-right:85px;
     font-size: 30px;
-    color:inherit;
+    z-index: 1;
 }
 
 @keyframes blink{
@@ -223,9 +225,11 @@ nav#menu span.fa.fa-bars{
 }
 .nav-light {
     color: #FFFFFF;
+    mix-blend-mode: difference;
 }
 .nav-dark {
-    color: #333;
+    color: #333333;
+    mix-blend-mode: difference;
 }
 .navmenu, .navbar-offcanvas {
 width: 270px;
@@ -331,7 +335,7 @@ a.down-btn span.fa.fa-angle-down {
 }
 
 .service{
-	border: 1px solid #222;
+	border: 2px solid #fff;
 	margin-top: 20px;
 	margin-bottom: 0px;
 	transition: all 0.3s;

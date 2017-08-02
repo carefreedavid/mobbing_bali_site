@@ -1,77 +1,14 @@
 
-/* Change the color of the menu icon for light/dark backgrounds */
-var menuIcon = document.getElementById('menu-icon');
-var socialWrapper = document.getElementById('socials');
-var fbIcon = socialWrapper.getElementsByTagName('a')[0];
-var instaIcon = socialWrapper.getElementsByTagName('a')[1];
-var ytIcon = socialWrapper.getElementsByTagName('a')[2];
-var twIcon = socialWrapper.getElementsByTagName('a')[3];
-var scrollCount = 0;
-window.onscroll = function () {
-    function setDark(){
-        menuIcon.classList.add("nav-dark");
-        menuIcon.classList.remove("nav-light");
-        fbIcon.classList.add("nav-dark");
-        fbIcon.classList.remove("nav-light");
-        instaIcon.classList.add("nav-dark");
-        instaIcon.classList.remove("nav-light");
-        ytIcon.classList.add("nav-dark");
-        ytIcon.classList.remove("nav-light");
-        twIcon.classList.add("nav-dark");
-        twIcon.classList.remove("nav-light");
-    }
-    function setLight(){
-        menuIcon.classList.add("nav-light");
-        menuIcon.classList.remove("nav-dark");
-        fbIcon.classList.add("nav-light");
-        fbIcon.classList.remove("nav-dark");
-        instaIcon.classList.add("nav-light");
-        instaIcon.classList.remove("nav-dark");
-        ytIcon.classList.add("nav-light");
-        ytIcon.classList.remove("nav-dark");
-        twIcon.classList.add("nav-light");
-        twIcon.classList.remove("nav-dark");
-    }
-    "use strict";
-
-    scrollCount = 0;
-    scrollCount += 1000;
-    if(document.body.scrollTop < scrollCount){
-        setDark();
-        return;
-    }
-    scrollCount += 470;
-    if(document.body.scrollTop < scrollCount){
-        setLight();
-        return;
-    }
-    scrollCount += 750;
-    if(document.body.scrollTop < scrollCount){
-        setDark();
-        return;
-    }
-    scrollCount += 400;
-    if(document.body.scrollTop < scrollCount){
-        setLight();
-        return;
-    }
-    scrollCount += 260;
-    if(document.body.scrollTop < scrollCount){
-        setDark();
-        return;
-    }
-    scrollCount += 879;
-    if(document.body.scrollTop < scrollCount){
-        setLight();
-        return;
-    }
-};
 
 function main() {
 
 (function () {
    'use strict';
 
+   // Collapse the offcanvas nav when item clicked
+    $('.offcanvas a').on('click', function(){
+        $('.close').trigger('click');
+    });
    /*====================================
     Page a Link Smooth Scrolling
     ======================================*/
