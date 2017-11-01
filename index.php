@@ -247,7 +247,7 @@ if(isset($_POST['form_submit'])) {
                         <div class="service">
                             <span class="fa icon-merch fa-3x"></span>
                             <h4>Merch</h4>
-                            <p>We plan to put our mark on some beanies, coffee cups, hats and all thing wearable. <br><br/> T-Shirts have arrived ... Contact us if you would like one, or pick one up at the next gig!<br><br/></p>
+                            <p>We plan to put our mark on some beanies, coffee cups, hats and all things wearable. <br><br/> T-Shirts have arrived ... Contact us if you would like one, or pick one up at the next gig!<br><br/></p>
                         </div>
                     </a>
                 </div>
